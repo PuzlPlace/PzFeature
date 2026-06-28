@@ -5,9 +5,14 @@ para projetos Laravel da Puzl. É a evolução da biblioteca interna `FeatureMak
 `puzl/api`, agora reutilizável e **100% configurável** (caminhos, namespaces, rotas,
 comando e stubs) via `config/pzfeature.php`, no padrão dos demais pacotes `Pz*`.
 
-> Documentação completa (instalação, configuração, stubs, comando, exemplos e FAQ):
-> **tutorial HTML** em [`docs/index.html`](docs/index.html), publicado via GitHub Pages
-> em `https://puzlplace.github.io/PzFeature/`.
+---
+
+## Documentação
+
+**[Abrir documentação completa no navegador →](https://puzlplace.github.io/PzFeature/)**
+
+Site estático (GitHub Pages) com API, exemplos, configuração e integração Laravel.
+Fonte: [`docs/index.html`](docs/index.html).
 
 ---
 
