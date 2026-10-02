@@ -18,28 +18,66 @@ Fonte: [`docs/index.html`](docs/index.html).
 
 ## Instalação
 
-Como o pacote é distribuído por VCS privado (`PuzlPlace/PzFeature`), adicione o
-repositório ao `composer.json` do projeto consumidor:
+O pacote **não está no Packagist** — é distribuído pelo próprio repositório Git
+(`PuzlPlace/PzFeature`). São dois passos.
+
+### 1. Declare o repositório
+
+No `composer.json` da aplicação, no mesmo nível de `require`:
 
 ```json
-{
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/PuzlPlace/PzFeature.git"
-        }
-    ]
-}
+"repositories": [
+    {
+        "type": "vcs",
+        "url": "https://github.com/PuzlPlace/PzFeature.git"
+    }
+]
 ```
 
-Em seguida, instale via Composer:
+Já tem outros pacotes `Pz*`? É só acrescentar mais um objeto à lista existente.
+
+### 2. Instale por versão
 
 ```bash
-composer require puzl/pzfeature
+composer require puzl/pzfeature:^1.0
+```
+
+Resultado no `require`:
+
+```json
+"puzl/pzfeature": "^1.0"
 ```
 
 O **auto-discovery** do Laravel registra o `Puzl\PzFeature\Laravel\PzFeatureServiceProvider`
 automaticamente (declarado em `extra.laravel.providers`).
+
+### Escolhendo a constraint
+
+Cada release publicado é uma tag semver — veja as
+[Releases](https://github.com/PuzlPlace/PzFeature/releases).
+
+| Constraint | Resolve para |
+|------------|--------------|
+| `^1.0` | última `1.x`. **Recomendado**: pega correções e recursos novos, nunca uma major com breaking change. |
+| `~1.2.0` | última `1.2.x`. Só correções de patch, sem subir de minor. |
+| `v1.2.3` | exatamente essa tag. Reprodutível ao extremo; nenhuma correção chega sozinha. |
+| `dev-production` | topo da branch, sem versão. Modo legado — sem rastreabilidade, evite. |
+
+Atualizar depois:
+
+```bash
+composer update puzl/pzfeature
+```
+
+### Versionamento
+
+Não há versão escrita em lugar nenhum deste pacote — o `composer.json` **não tem**
+campo `version` de propósito. A fonte é a tag do Git.
+
+Toda entrega na branch `production` que passa no CI gera automaticamente a próxima
+tag *patch* e o release correspondente, com notas montadas a partir dos commits
+(`.github/workflows/tests.yml`, job `Release`). Mudanças de *minor* e *major* são
+deliberadas: criam-se à mão uma vez, e o autoincremento continua a partir delas.
 
 ---
 
