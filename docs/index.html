@@ -526,7 +526,7 @@
             <li>Mudar a arquitetura DDD ou criar novos <em>tipos</em> de feature</li>
             <li>Rodar migrations ou tocar o banco de dados</li>
             <li>Exigir Orchestra Testbench (testes em PHPUnit puro)</li>
-            <li>Publicar no Packagist público (distribuição por VCS privado)</li>
+            <li>Publicar no Packagist (distribuição direto pelo repositório Git público)</li>
             <li>Presets/perfis nomeados de config (apenas um arquivo de config)</li>
           </ul>
         </div>
@@ -536,7 +536,7 @@
     <!-- INSTALAÇÃO -->
     <section id="instalacao">
       <h2>Instalação</h2>
-      <p>O pacote é distribuído por <strong>VCS privado</strong> (<code>PuzlPlace/PzFeature</code>). Adicione o repositório ao <code>composer.json</code> do projeto consumidor:</p>
+      <p>O repositório <code>PuzlPlace/PzFeature</code> é <strong>público</strong>, mas o pacote <strong>não está no Packagist</strong> — é distribuído pelo próprio repositório Git. Adicione o repositório ao <code>composer.json</code> do projeto consumidor:</p>
 <pre><code><span class="kw">{</span>
     <span class="str">"repositories"</span>: [
         {
@@ -547,7 +547,9 @@
 <span class="kw">}</span></code></pre>
 
       <p>Em seguida, instale via Composer:</p>
-<pre><code>composer require puzl/pzfeature</code></pre>
+<pre><code>composer require puzl/pzfeature:^1.0</code></pre>
+
+      <p>Cada release é uma tag semver (veja as <a href="https://github.com/PuzlPlace/PzFeature/releases">Releases</a>). Use <code>^1.0</code> para receber correções e recursos novos sem nunca subir de major; evite <code>dev-production</code>, que segue o topo da branch sem versão.</p>
 
       <p>O <strong>auto-discovery</strong> do Laravel registra o <code>Puzl\PzFeature\Laravel\PzFeatureServiceProvider</code> automaticamente (declarado em <code>extra.laravel.providers</code>). Nada mais é necessário para começar a usar o comando.</p>
 

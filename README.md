@@ -18,8 +18,8 @@ Fonte: [`docs/index.html`](docs/index.html).
 
 ## Instalação
 
-O pacote **não está no Packagist** — é distribuído pelo próprio repositório Git
-(`PuzlPlace/PzFeature`). São dois passos.
+O repositório `PuzlPlace/PzFeature` é **público**, mas o pacote **não está no
+Packagist** — é distribuído pelo próprio repositório Git. São dois passos.
 
 ### 1. Declare o repositório
 
